@@ -1,0 +1,13 @@
+com\rest_hrm\persistence\entities\Department.class
+com\rest_hrm\persistence\entities\Holiday.class
+com\rest_hrm\App.class
+com\rest_hrm\persistence\entities\Job.class
+com\rest_hrm\persistence\repo\EmployeeRepo.class
+com\rest_hrm\persistence\connection\JPAManager.class
+com\rest_hrm\persistence\entities\Salary.class
+com\rest_hrm\persistence\entities\TimeEntry.class
+com\rest_hrm\persistence\entities\Address.class
+com\rest_hrm\persistence\repo\CrudRepo.class
+com\rest_hrm\presentation\controller\TestClass.class
+com\rest_hrm\persistence\entities\Employee.class
+com\rest_hrm\MyResource.class
