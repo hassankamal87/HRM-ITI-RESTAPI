@@ -11,6 +11,7 @@ import java.time.LocalDate;
 public class Employee {
     @Id
     @Column(name = "empID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Size(max = 60)
@@ -26,12 +27,12 @@ public class Employee {
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "jobID", nullable = false)
-    private Job jobID;
+    private Job job;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "salaryID", nullable = false)
-    private Salary salaryID;
+    private Salary salary;
 
     @NotNull
     @Column(name = "hireDate", nullable = false)
@@ -47,7 +48,7 @@ public class Employee {
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "addressID", nullable = false)
-    private Address addressID;
+    private Address address;
 
     @Column(name = "annualHolidays")
     private Integer annualHolidays;
@@ -76,20 +77,20 @@ public class Employee {
         this.empEmail = empEmail;
     }
 
-    public Job getJobID() {
-        return jobID;
+    public Job getJob() {
+        return job;
     }
 
-    public void setJobID(Job jobID) {
-        this.jobID = jobID;
+    public void setJob(Job job) {
+        this.job = job;
     }
 
-    public Salary getSalaryID() {
-        return salaryID;
+    public Salary getSalary() {
+        return salary;
     }
 
-    public void setSalaryID(Salary salaryID) {
-        this.salaryID = salaryID;
+    public void setSalary(Salary salary) {
+        this.salary = salary;
     }
 
     public LocalDate getHireDate() {
@@ -116,12 +117,12 @@ public class Employee {
         this.department = department;
     }
 
-    public Address getAddressID() {
-        return addressID;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setAddressID(Address addressID) {
-        this.addressID = addressID;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public Integer getAnnualHolidays() {
@@ -138,12 +139,12 @@ public class Employee {
                 "id=" + id +
                 ", empName='" + empName + '\'' +
                 ", empEmail='" + empEmail + '\'' +
-                ", jobID=" + jobID +
-                ", salaryID=" + salaryID +
+                ", jobID=" + job +
+                ", salaryID=" + salary +
                 ", hireDate=" + hireDate +
                 ", endDate=" + endDate +
                 ", department=" + department +
-                ", addressID=" + addressID +
+                ", addressID=" + address +
                 ", annualHolidays=" + annualHolidays +
                 '}';
     }

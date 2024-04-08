@@ -14,3 +14,4 @@ target/
 *.iml
 *.iws
 *.lst
+*.yaml

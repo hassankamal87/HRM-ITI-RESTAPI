@@ -11,6 +11,7 @@ import java.time.LocalDate;
 public class Holiday {
     @Id
     @Column(name = "holidayID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull

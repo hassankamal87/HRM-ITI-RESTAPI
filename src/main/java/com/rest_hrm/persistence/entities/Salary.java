@@ -1,9 +1,6 @@
 package com.rest_hrm.persistence.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
@@ -13,11 +10,19 @@ import java.math.BigDecimal;
 public class Salary {
     @Id
     @Column(name = "salaryID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
     @Column(name = "amount", nullable = false, precision = 10, scale = 2)
     private BigDecimal amount;
+
+    public Salary() {
+    }
+
+    public Salary(BigDecimal amount) {
+        this.amount = amount;
+    }
 
     public Integer getId() {
         return id;

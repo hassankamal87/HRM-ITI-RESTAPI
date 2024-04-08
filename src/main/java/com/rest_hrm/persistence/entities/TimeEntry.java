@@ -11,12 +11,13 @@ import java.time.LocalTime;
 public class TimeEntry {
     @Id
     @Column(name = "entryID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "empID", nullable = false)
-    private Employee empID;
+    private Employee employee;
 
     @NotNull
     @Column(name = "entryDate", nullable = false)
@@ -36,12 +37,12 @@ public class TimeEntry {
         this.id = id;
     }
 
-    public Employee getEmpID() {
-        return empID;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setEmpID(Employee empID) {
-        this.empID = empID;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public LocalDate getEntryDate() {
