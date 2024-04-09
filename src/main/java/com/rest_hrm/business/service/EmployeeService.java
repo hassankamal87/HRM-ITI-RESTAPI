@@ -1,7 +1,7 @@
 package com.rest_hrm.business.service;
 
 import com.rest_hrm.business.dto.EmployeeDto;
-import com.rest_hrm.business.dto.EmployeeRequest;
+import com.rest_hrm.business.dto.requests_dtos.EmployeeRequest;
 import com.rest_hrm.business.mappers.EmployeeMapper;
 import com.rest_hrm.persistence.connection.JPAManager;
 import com.rest_hrm.persistence.entities.*;
@@ -40,6 +40,14 @@ public class EmployeeService {
 
     public List<EmployeeDto> getEmployeesByName(String name) {
         List<Employee> employees = employeeRepo.findByName(name);
+
+        return employees.stream()
+                .map(employee -> EmployeeMapper.getInstance().mapEntityToDto(employee, EmployeeDto.class))
+                .toList();
+    }
+
+    public List<EmployeeDto> getEmployeesWithDepartmentId(int id) {
+        List<Employee> employees = employeeRepo.findEmployeesWithDepartmentID(id);
 
         return employees.stream()
                 .map(employee -> EmployeeMapper.getInstance().mapEntityToDto(employee, EmployeeDto.class))

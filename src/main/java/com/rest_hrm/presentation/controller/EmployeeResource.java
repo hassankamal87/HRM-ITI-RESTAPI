@@ -1,7 +1,7 @@
 package com.rest_hrm.presentation.controller;
 
 import com.rest_hrm.business.dto.EmployeeDto;
-import com.rest_hrm.business.dto.EmployeeRequest;
+import com.rest_hrm.business.dto.requests_dtos.EmployeeRequest;
 import com.rest_hrm.business.service.EmployeeService;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
@@ -36,6 +36,12 @@ public class EmployeeResource {
         } else {
             return Response.status(Response.Status.BAD_REQUEST).entity("Invalid employee Id").build();
         }
+    }
+
+    @GET
+    @Path("department/{id}")
+    public Response getEmployeesByDepartmentId(@PathParam("id") int id) {
+        return Response.ok(employeeService.getEmployeesWithDepartmentId(id)).build();
     }
 
     @GET

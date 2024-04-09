@@ -146,6 +146,10 @@ public class EmployeeDto implements Serializable {
 
     @Override
     public String toString() {
+        String depMGR = "not exist";
+        if (department != null){
+            depMGR = department.getDepName();
+        }
         return "EmployeeDto{" +
                 "id=" + id +
                 ", empName='" + empName + '\'' +
@@ -154,7 +158,7 @@ public class EmployeeDto implements Serializable {
                 ", salaryID=" + salary +
                 ", hireDate=" + hireDate +
                 ", endDate=" + endDate +
-                ", department=" + department.getDepName() +
+                ", department=" + depMGR +
                 ", address=" + address +
                 ", annualHolidays=" + annualHolidays +
                 '}';

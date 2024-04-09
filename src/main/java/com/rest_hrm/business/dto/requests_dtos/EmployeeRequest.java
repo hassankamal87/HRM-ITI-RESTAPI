@@ -1,4 +1,4 @@
-package com.rest_hrm.business.dto;
+package com.rest_hrm.business.dto.requests_dtos;
 
 import com.rest_hrm.persistence.entities.Address;
 import com.rest_hrm.persistence.entities.Department;
