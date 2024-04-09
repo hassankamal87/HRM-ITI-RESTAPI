@@ -18,6 +18,10 @@ public class JobDto implements Serializable {
     public JobDto() {
     }
 
+    public JobDto(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
     public JobDto(Integer id, String jobTitle) {
         this.id = id;
         this.jobTitle = jobTitle;
