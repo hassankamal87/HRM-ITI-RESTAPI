@@ -65,7 +65,7 @@ public class EmployeeService {
                 return "there is no job with this id";
             }
 
-            Salary salary = createSalary(employeeRequest.getSalary());
+            Salary salary = getOrCreateNewSalary(employeeRequest.getSalary());
 
             Department department = getDepartmentById(employeeRequest.getDepartmentID());
             if (department == null) {

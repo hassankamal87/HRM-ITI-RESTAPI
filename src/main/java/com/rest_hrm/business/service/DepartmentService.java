@@ -36,19 +36,18 @@ public class DepartmentService {
         return DepartmentMapper.getInstance().mapEntityToDto(department, DepartmentDto.class);
     }
 
+    public List<DepartmentDto> getDepartmentsStartsWithName(String name) {
+        List<Department> departments = departmentRepo.findDepartmentsByName(name);
+        return departments.stream()
+                .map(department -> DepartmentMapper.getInstance().mapEntityToDto(department, DepartmentDto.class))
+                .toList();
+    }
 
     public EmployeeDto getDepartmentManager(int deptId) {
         Employee employee = departmentRepo.getDepartmentManager(deptId);
         if (employee != null)
             return EmployeeMapper.getInstance().mapEntityToDto(employee, EmployeeDto.class);
         return null;
-    }
-
-    public List<DepartmentDto> getDepartmentsStartsWithName(String name) {
-        List<Department> departments = departmentRepo.findDepartmentsByName(name);
-        return departments.stream()
-                .map(department -> DepartmentMapper.getInstance().mapEntityToDto(department, DepartmentDto.class))
-                .toList();
     }
 
     public DepartmentDto getDepartmentByManagerID(int id) {
@@ -63,16 +62,6 @@ public class DepartmentService {
         return departments.stream()
                 .map(department -> DepartmentMapper.getInstance().mapEntityToDto(department, DepartmentDto.class))
                 .toList();
-    }
-
-    public DepartmentDto updateDepartmentName(int id, String name) {
-        Department department = departmentRepo.findById(Department.class, id);
-        if (department != null) {
-            department.setDepName(name);
-            departmentRepo.update(department);
-            return DepartmentMapper.getInstance().mapEntityToDto(department, DepartmentDto.class);
-        }
-        return null;
     }
 
     public String createDepartment(DepartmentRequest departmentRequest) {
@@ -92,6 +81,16 @@ public class DepartmentService {
         }
 
         return "";
+    }
+
+    public DepartmentDto updateDepartmentName(int id, String name) {
+        Department department = departmentRepo.findById(Department.class, id);
+        if (department != null) {
+            department.setDepName(name);
+            departmentRepo.update(department);
+            return DepartmentMapper.getInstance().mapEntityToDto(department, DepartmentDto.class);
+        }
+        return null;
     }
 
     public DepartmentDto updateDepartmentManager(int id, int mgrId) {
@@ -121,7 +120,7 @@ public class DepartmentService {
         departmentRepo.deleteById(Department.class, id);
     }
 
-    public void deleteAllEmployees() {
+    public void deleteAllDepartments() {
         departmentRepo.deleteAll();
     }
 

@@ -135,6 +135,10 @@ public class Employee {
 
     @Override
     public String toString() {
+        String depMGR = "not exist";
+        if (department != null){
+            depMGR = department.getDepName();
+        }
         return "Employee{" +
                 "id=" + id +
                 ", empName='" + empName + '\'' +
@@ -143,7 +147,7 @@ public class Employee {
                 ", salaryID=" + salary +
                 ", hireDate=" + hireDate +
                 ", endDate=" + endDate +
-                ", department=" + department +
+                ", department=" + depMGR +
                 ", addressID=" + address +
                 ", annualHolidays=" + annualHolidays +
                 '}';

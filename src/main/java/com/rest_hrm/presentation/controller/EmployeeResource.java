@@ -29,7 +29,7 @@ public class EmployeeResource {
 
     @GET
     @Path("/{id}")
-    public Response getAllEmployees(@PathParam("id") int id) {
+    public Response getEmployeeById(@PathParam("id") int id) {
         EmployeeDto employee = employeeService.getEmployeeById(id);
         if (employee != null) {
             return Response.ok(employee).build();
