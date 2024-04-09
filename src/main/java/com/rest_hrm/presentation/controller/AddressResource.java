@@ -49,6 +49,5 @@ public class AddressResource {
         if (Objects.equals(result, ""))
             return Response.ok().build();
         return Response.status(Response.Status.EXPECTATION_FAILED).entity(result).build();
-
     }
 }

@@ -133,6 +133,9 @@ public class Employee {
         this.annualHolidays = annualHolidays;
     }
 
+    public void decrementAnnualHoliday(){
+        annualHolidays--;
+    }
     @Override
     public String toString() {
         String depMGR = "not exist";
