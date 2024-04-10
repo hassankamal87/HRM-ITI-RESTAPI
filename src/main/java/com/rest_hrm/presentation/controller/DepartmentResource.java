@@ -39,7 +39,7 @@ public class DepartmentResource {
     @GET
     @Path("/n")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getDepartmentsByName(@QueryParam("name") String name) {
+        public Response getDepartmentsByName(@QueryParam("name") String name) {
         return Response.ok(departmentService.getDepartmentsStartsWithName(name)).build();
     }
 

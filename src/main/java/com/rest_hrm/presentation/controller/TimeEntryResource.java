@@ -43,7 +43,6 @@ public class TimeEntryResource {
 
     @GET
     @Path("hours/{empId}/{date}")
-    @Produces(MediaType.APPLICATION_JSON)
     public Response getTotalHoursForEmployeeInMonth(@PathParam("empId") int id, @PathParam("date") String dateStr) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate date = LocalDate.parse(dateStr, formatter);
@@ -51,7 +50,7 @@ public class TimeEntryResource {
         Long totalHoursForEmployeeInMonth = timeEntryService.getTotalHoursForEmployeeInMonth(id, date);
         if (totalHoursForEmployeeInMonth == null)
             return Response.ok(0).build();
-        return Response.ok().build();
+        return Response.ok(totalHoursForEmployeeInMonth).build();
     }
 
     @POST

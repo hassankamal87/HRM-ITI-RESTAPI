@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.rest_hrm</groupId>
-    <artifactId>hrm</artifactId>
+    <artifactId>hrm-rest</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>hrm</name>
